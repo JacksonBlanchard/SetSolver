@@ -1,0 +1,2 @@
+# Ignore temporary .asv files if using Git while MATLAB is open
+Code/*.asv
