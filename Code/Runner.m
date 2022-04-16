@@ -7,7 +7,7 @@ function Runner(filename)
     CARD_NUM = 12;
 
     % Add the Images folder to the search path
-    addpath('Images');
+    addpath('..\Images');
 
     % Set default filename is none is passed in
     if nargin < 1
@@ -31,15 +31,15 @@ function Runner(filename)
     end
 
     % Displays each normalized card (Uncomment if you want to test)
-%     % For each card in the list
-%     for cardIndex = 1:CARD_NUM
-%         % Set figure
-%         figure(cardIndex);
-%         % Acquire card from list
-%         card = cards(cardIndex);
-%         % Display the normalized card
-%         imshow(card.getNrmImg());
-%     end
+    % For each card in the list
+    for cardIndex = 1:CARD_NUM
+        % Set figure
+        figure(cardIndex);
+        % Acquire card from list
+        card = cards(cardIndex);
+        % Display the normalized card
+        imshow(card.getNrmImg());
+    end
 end
 
 

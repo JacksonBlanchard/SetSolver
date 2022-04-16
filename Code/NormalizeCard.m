@@ -9,7 +9,7 @@ function nrmCard = NormalizeCard(filename, card_bounds)
 
     % Generate a version of the image where pixel value = sum of rgb
     % channels
-    im_rgbsum = im_original(:,:,1) + im_original(:,:,1) + im_original(:,:,1);
+    im_rgbsum = im_original(:,:,1) + im_original(:,:,2) + im_original(:,:,3);
 
     % Unpack card bounds
     upper = card_bounds(1)-5;

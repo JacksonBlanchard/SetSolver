@@ -9,7 +9,7 @@ function card_bounds = IsolateCards(filename)
 
     % Generate a version of the image where pixel value = sum of rgb
     % channels
-    im_rgbsum = im_original(:,:,1) + im_original(:,:,1) + im_original(:,:,1);
+    im_rgbsum = im_original(:,:,1) + im_original(:,:,2) + im_original(:,:,3);
 
     % Convert to binary with low threshold (Shows cards against black
     % cloth)
