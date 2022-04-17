@@ -21,6 +21,13 @@ function card_bounds = IsolateCards(filename)
     im_bin = imclose(im_bin, strel_disk);
     im_bin = imopen(im_bin, strel_disk);
 
+    % Set border of entire image to white
+    [len,width] = size(im_original);
+    im_bin(1,:) = 1;
+    im_bin(len,:) = 1;
+    im_bin(:,1) = 1;
+    im_bin(:,width) = 1;
+
     % Find each potential card
     [potential_cards, regions_found] = bwlabel(im_bin);
 
@@ -41,9 +48,9 @@ function card_bounds = IsolateCards(filename)
         % Calculate the area found for this region
         region_area = (right-left)*(lower-upper);
 
-        % If region area is larger than 150000 pixels and less than 900000 
+        % If region area is larger than 150000 pixels and less than 1500000 
         % pixels, this is a card
-        if (region_area > 150000 && region_area < 900000)
+        if (region_area > 150000 && region_area < 1500000)
             card_bounds = [card_bounds; [upper,lower,left,right]];
         end
     end

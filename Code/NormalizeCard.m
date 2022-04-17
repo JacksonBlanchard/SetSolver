@@ -4,6 +4,9 @@
 % End result card will be 700 x 500 pixels
 %
 function nrmCard = NormalizeCard(filename, card_bounds)
+    % Disable warnings until end of function
+    warning("off");
+
     % Read in the original image
     im_original = imread(filename);
 
@@ -86,4 +89,7 @@ function nrmCard = NormalizeCard(filename, card_bounds)
     warpedCard = imref2d([700 500]);
     % Transform the card and map onto template
     nrmCard = imwarp(im_original, tform, 'OutputView', warpedCard);
+
+    % Re-enable warnings
+    warning('on');
 end

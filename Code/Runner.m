@@ -4,7 +4,7 @@
 function Runner(filename)
 
     % By default, there will be 12 cards present in each image
-    CARD_NUM = 12;
+    CARD_NUM = 1;
 
     % Add the Images folder to the search path
     addpath('..\Images');
@@ -27,19 +27,33 @@ function Runner(filename)
         % Normalize the card given the
         nrmCard = NormalizeCard(filename, cardBounds);
         % Create card object with bounds and normalized card parameters
-        cards = [cards;CardInfo(cardBounds,nrmCard)];
+        card = CardInfo(cardBounds,nrmCard);
+
+        % Determine the number of shapes on this card and store value
+        card.setNum(GetCardNum(nrmCard));
+
+        % Determine the pattern of this card's shapes and store value
+        card.setPattern(GetCardPattern(nrmCard));
+
+        % Determine the shape present on this card and store value
+        card.setShape(GetCardShape(nrmCard));
+
+        % Store this card in the list of cards
+        cards = [cards; card];
     end
+
+    figure(3)
 
     % Displays each normalized card (Uncomment if you want to test)
     % For each card in the list
     for cardIndex = 1:CARD_NUM
-        % Set figure
-        figure(cardIndex);
+        % Subplot to display this card
+        subplot(4,3,cardIndex);
         % Acquire card from list
         card = cards(cardIndex);
         % Display the normalized card
         imshow(card.getNrmImg());
+        % Set title
+        title(sprintf("%d %s %s %s(s) ", card.getNum(), card.getPattern(), card.getColor(), card.getShape()));
     end
 end
-
-

@@ -15,7 +15,7 @@ classdef CardInfo < handle
         % Valid colors are "red", "green", "purple"
         color = "";
         % Pattern of shapes on this card (Default is "")
-        % Valid patters are "empty", "lines" "filled"
+        % Valid patters are "empty", "lined" "filled"
         pattern = "";
         % Type of shape on this card (Default is "")
         % Valid shapes are "diamond", "squiggle", "oval"
