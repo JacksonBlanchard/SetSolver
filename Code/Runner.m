@@ -4,7 +4,7 @@
 function Runner(filename)
 
     % By default, there will be 12 cards present in each image
-    CARD_NUM = 1;
+    CARD_NUM = 12;
 
     % Add the Images folder to the search path
     addpath('..\Images');
@@ -24,7 +24,7 @@ function Runner(filename)
     for boundIndex = 1:CARD_NUM
         % Acquire the card bounds
         cardBounds = bounds(boundIndex,:);
-        % Normalize the card given the
+        % Normalize the card given the bounds
         nrmCard = NormalizeCard(filename, cardBounds);
         % Create card object with bounds and normalized card parameters
         card = CardInfo(cardBounds,nrmCard);
@@ -37,6 +37,9 @@ function Runner(filename)
 
         % Determine the shape present on this card and store value
         card.setShape(GetCardShape(nrmCard));
+
+        % Determine the color of the shape on this card and store value
+        card.setColor(GetCardColor(nrmCard));
 
         % Store this card in the list of cards
         cards = [cards; card];
