@@ -37,6 +37,14 @@ classdef CardInfo < handle
         function bounds = getBounds(obj)
             bounds = obj.bounds;
         end
+        % getUpperBound - getter for Upper bound of card
+        function upperBound = getUpperBound(obj)
+            upperBound = obj.bounds(1);
+        end
+        % getLeftBound - getter for Left bound of card
+        function leftBound = getLeftBound(obj)
+            leftBound = obj.bounds(3);
+        end
         % getNrmImg - getter method for normalized image of card
         function nrmImg = getNrmImg(obj)
             nrmImg = obj.nrm_img;

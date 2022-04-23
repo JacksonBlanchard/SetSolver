@@ -40,7 +40,6 @@ function pattern = GetCardPattern(nrmCard)
 
             % Convert the shape region to binary with medium threshold
             bin_shape = imbinarize(im2gray(shape));
-            imshow(bin_shape);
             % Determine the number of regions within this shape
             [~, regions_found] = bwlabel(bin_shape);
 

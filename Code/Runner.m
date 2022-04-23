@@ -45,13 +45,18 @@ function Runner(filename)
         cards = [cards; card];
     end
 
+    % Sort the card list
+    % (CardIndex-1) // 4 + 1 gets the row number
+    % (CardIndex-1) % 4 + 1 gets the column number
+    cards = SortCards(cards, CARD_NUM);
+
     figure(3)
 
     % Displays each normalized card (Uncomment if you want to test)
     % For each card in the list
     for cardIndex = 1:CARD_NUM
         % Subplot to display this card
-        subplot(4,3,cardIndex);
+        subplot(3,4,cardIndex);
         % Acquire card from list
         card = cards(cardIndex);
         % Display the normalized card
